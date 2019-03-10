@@ -125,18 +125,82 @@ void numberToText(int *arr, int number)
 			else if (arr[i] == 8) str += str800 + str1t;
 			else if (arr[i] == 9) str += str900 + str1t;
 		}
-		
-		if (i == 5 && arr[i - 1] == 0 && arr[i - 2] != 0) // 101 тыс€ча
+
+		if (i == 5 && arr[i - 1] != 0) // 1x0 тыс€ч
 		{
-			if		(arr[i-2] == 1) str += str100 + str1a + str1t + str1t1;
-			else if (arr[i-2] == 2) str += str100 + str2 + str1t + str1t2to4;
-			else if (arr[i-2] == 3) str += str100 + str3 + str1t + str1t2to4;
-			else if (arr[i-2] == 4) str += str100 + str4 + str1t + str1t2to4;
-			else if (arr[i-2] == 5) str += str100 + str5 + str1t;
-			else if (arr[i-2] == 6) str += str100 + str6 + str1t;
-			else if (arr[i-2] == 7) str += str100 + str7 + str1t;
-			else if (arr[i-2] == 8) str += str100 + str8 + str1t;
-			else if (arr[i-2] == 9) str += str100 + str9 + str1t;
+			if		(arr[i] == 1) str += str100;
+			else if (arr[i] == 2) str += str200;
+			else if (arr[i] == 3) str += str300;
+			else if (arr[i] == 4) str += str400;
+			else if (arr[i] == 5) str += str500;
+			else if (arr[i] == 6) str += str600;
+			else if (arr[i] == 7) str += str700;
+			else if (arr[i] == 8) str += str800;
+			else if (arr[i] == 9) str += str900;
+		}
+		
+		if (i == 5 && arr[i - 1] == 0 && arr[i - 2] != 0) // 10x тыс€ч /////////////////
+		{
+			if (arr[i] == 1) str += str100;
+			else if (arr[i] == 2) str += str200;
+			else if (arr[i] == 3) str += str300;
+			else if (arr[i] == 4) str += str400;
+			else if (arr[i] == 5) str += str500;
+			else if (arr[i] == 6) str += str600;
+			else if (arr[i] == 7) str += str700;
+			else if (arr[i] == 8) str += str800;
+			else if (arr[i] == 9) str += str900;
+		}
+		
+		if (i == 4 && arr[i - 1] == 0 && arr[i - 2] ==0) // 10 тыс€ч
+		{
+			if		(arr[i] == 1) str += str10 + str1t;
+			else if (arr[i] == 2) str += str20 + str1t;
+			else if (arr[i] == 3) str += str30 + str1t;
+			else if (arr[i] == 4) str += str40 + str1t;
+			else if (arr[i] == 5) str += str50 + str1t;
+			else if (arr[i] == 6) str += str60 + str1t;
+			else if (arr[i] == 7) str += str70 + str1t;
+			else if (arr[i] == 8) str += str80 + str1t;
+			else if (arr[i] == 9) str += str90 + str1t;
+		}
+
+		if (i == 4 && arr[i] != 1 && arr[i - 1] != 0) // 2x тыс€ч
+		{
+			if		(arr[i] == 2) str += str20;
+			else if (arr[i] == 3) str += str30;
+			else if (arr[i] == 4) str += str40;
+			else if (arr[i] == 5) str += str50;
+			else if (arr[i] == 6) str += str60;
+			else if (arr[i] == 7) str += str70;
+			else if (arr[i] == 8) str += str80;
+			else if (arr[i] == 9) str += str90;
+		}
+		
+		if (i == 4 && arr[i] == 1) // 1x тыс€ч
+		{
+			if		(arr[i - 1] == 1) str += str11 + str1t;
+			else if (arr[i - 1] == 2) str += str12 + str1t;
+			else if (arr[i - 1] == 3) str += str13 + str1t;
+			else if (arr[i - 1] == 4) str += str14 + str1t;
+			else if (arr[i - 1] == 5) str += str15 + str1t;
+			else if (arr[i - 1] == 6) str += str16 + str1t;
+			else if (arr[i - 1] == 7) str += str17 + str1t;
+			else if (arr[i - 1] == 8) str += str18 + str1t;
+			else if (arr[i - 1] == 9) str += str19 + str1t;
+		}
+
+		if (i == 3 && arr[i + 1] != 1) // тыс€ча
+		{
+			if		(arr[i] == 1) str += str1a + str1t + str1t1;
+			else if (arr[i] == 2) str += str2e + str1t + str1t2to4;
+			else if (arr[i] == 3) str += str3 + str1t + str1t2to4;
+			else if (arr[i] == 4) str += str4 + str1t + str1t2to4;
+			else if (arr[i] == 5) str += str5 + str1t;
+			else if (arr[i] == 6) str += str6 + str1t;
+			else if (arr[i] == 7) str += str7 + str1t;
+			else if (arr[i] == 8) str += str8 + str1t;
+			else if (arr[i] == 9) str += str9 + str1t;
 		}
 		
 		
