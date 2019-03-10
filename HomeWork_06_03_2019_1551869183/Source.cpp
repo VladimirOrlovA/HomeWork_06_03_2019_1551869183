@@ -2,7 +2,7 @@
 #include<time.h>
 #include<Windows.h>
 #include<cstring>			// библиотека работы со строкам
-#include<string>
+#include<string>			// библиотека работы со строкам
 
 using namespace std;
 
@@ -78,7 +78,7 @@ void numberToText(int *arr, int number)
 	arr = new int[size];
 
 
-	// записываем в массив введенное число по разрядно
+	// записываем в массив введенное число поразрядно
 
 	tmp = number;
 	while (tmp != 0)
@@ -91,14 +91,14 @@ void numberToText(int *arr, int number)
 
 	// выводим в консоль полученный массив
 
-	for (i = 0; i < size; i++)		
+	/*for (i = 0; i < size; i++)		
 		cout << arr[i] << " ";
 	
-	cout << endl;
+	cout << endl;*/
 	
 	// выводим текстовый эквивалент цифр в массиве в строку
 
-	for (i = size-1; i > 0; i--)
+	for (i = size-1; i >= 0; i--)
 	{
 		if (i == 6) // миллион
 		{
@@ -203,12 +203,65 @@ void numberToText(int *arr, int number)
 			else if (arr[i] == 9) str += str9 + str1t;
 		}
 		
+		if (i == 2) // сто
+		{
+			if		(arr[i] == 1) str += str100;
+			else if (arr[i] == 2) str += str200;
+			else if (arr[i] == 3) str += str300;
+			else if (arr[i] == 4) str += str400;
+			else if (arr[i] == 5) str += str500;
+			else if (arr[i] == 6) str += str600;
+			else if (arr[i] == 7) str += str700;
+			else if (arr[i] == 8) str += str800;
+			else if (arr[i] == 9) str += str900;
+		}
 		
+		if (i == 1 && arr[i]!=1) // десятки
+		{
+			if		(arr[i] == 1) str += str10;
+			else if (arr[i] == 2) str += str20;
+			else if (arr[i] == 3) str += str30;
+			else if (arr[i] == 4) str += str40;
+			else if (arr[i] == 5) str += str50;
+			else if (arr[i] == 6) str += str60;
+			else if (arr[i] == 7) str += str70;
+			else if (arr[i] == 8) str += str80;
+			else if (arr[i] == 9) str += str90;
+		}
+		
+		if (i == 1 && arr[i] == 1 && arr[i - 1] != 0) // 1х
+		{
+			if		(arr[i - 1] == 1) str += str11;
+			else if (arr[i - 1] == 2) str += str12;
+			else if (arr[i - 1] == 3) str += str13;
+			else if (arr[i - 1] == 4) str += str14;
+			else if (arr[i - 1] == 5) str += str15;
+			else if (arr[i - 1] == 6) str += str16;
+			else if (arr[i - 1] == 7) str += str17;
+			else if (arr[i - 1] == 8) str += str18;
+			else if (arr[i - 1] == 9) str += str19;
+		}
+
+		if (i == 0 && arr[i + 1] != 1) // единицы
+		{
+			if		(arr[i] == 1) str += str1;
+			else if (arr[i] == 2) str += str2;
+			else if (arr[i] == 3) str += str3;
+			else if (arr[i] == 4) str += str4;
+			else if (arr[i] == 5) str += str5;
+			else if (arr[i] == 6) str += str6;
+			else if (arr[i] == 7) str += str7;
+			else if (arr[i] == 8) str += str8;
+			else if (arr[i] == 9) str += str9;
+		}
+
+		if (i == 1 && arr[i] == 1 && arr[i-1]==0) str += str10;
+
 	}
 
-	
+	if (number==0) str += str0;
 
-	cout << str << endl;
+	cout << str << endl << endl;
 }
 
 int main()
@@ -219,27 +272,15 @@ int main()
 	SetConsoleOutputCP(1251);	// установка кодовой страницы win-cp 1251 в поток вывода
 
 	
-	const int n = 5;
+	const int n(5);
 	int arr[n] = { 0 };
 	
-	int number(1512); // одна тысяча пятьсот двенадцать
+	int number(0);
 	cout << endl<< "Введите число от 0 до 1 000 000 -> ";
 	cin >> number;
 	cout << endl;
 
-	//numberToArray(arr, n, number);
 	numberToText(arr, number);
-
-	//_itoa_s(number, str, 10);
-
-	//numberToText(str);
-
-	
-
-	
-
-	/*cin.ignore();
-	cin.getline(textNumber, 150);*/
 
 	system("pause");
 	return 0;
